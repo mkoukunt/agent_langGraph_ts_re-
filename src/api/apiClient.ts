@@ -7,5 +7,5 @@ export const apiClient = axios.create({
 
 export const nsApiClient = axios.create({
   baseURL: '', // Replace with your API base URL
-  headers: { 'Content-Type': 'application/json' }
+ 
 });

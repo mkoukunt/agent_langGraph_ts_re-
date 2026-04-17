@@ -13,11 +13,11 @@ export const findApi = async (qn:string): Promise<string> => {
 };
 
 export const fetchData = async (path:string): Promise<string> => {
-  
+  console.log("PATH====",path);
+  const token = 'cd4ab54e43f1482ded59f47d07246ba7';
   const { data } = await nsApiClient.get<string>('/fetchData'+path,{
   headers: {
-    'Authorization': 'Bearer afe7898123842cd69e2577817eb78e44'
-    
+    'Authorization': `Bearer ${token}`    
   }
 }); 
   console.log(data)

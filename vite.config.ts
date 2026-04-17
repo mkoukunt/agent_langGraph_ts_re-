@@ -11,6 +11,18 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/reasoning/, 'generate'), // Optional: Remove '/api' prefix,
         
       },
+      '/findApi': {
+        target: 'http://rabini.org:5001', // Backend server
+        changeOrigin: true, // Ensure the request appears to come from the frontend server
+        rewrite: (path) => path.replace(/^\/findApi/, 'generate'), // Optional: Remove '/api' prefix,
+        
+      },
+      '^/fetchData/.*': {
+        target: 'https://crexnmsdev1.solint.net/ns-api/v2', // Backend server
+        changeOrigin: true, // Ensure the request appears to come from the frontend server
+        rewrite: (path) => path.replace(/^\/fetchData/, ''), // Optional: Remove '/api' prefix,
+        
+      },
     },
   },
   plugins: [react()],

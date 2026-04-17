@@ -14,16 +14,15 @@ const graphState = {
         console.log('React button clicked');
         console.log('API Host:', st.apiHost);
         console.log('Access Token:', st.accessToken);
-       console.log('Question:', st.qn);
-      let data;
-      data  = await getreasoning(st.qn);
-      setState(prevState => ({ ...prevState, "ans": data }));
+       console.log('Question:', st.qn);            
       const result = await helloWorldGraph.invoke({
   messages: [{ role: "user", content: st.qn }],
 });
            console.log("\n=====START======");
   console.log("Graph result: ", result);
   console.log("\n=====END======");
+  console.log(result['messages'][3]['content'])
+  setState(prevState => ({ ...prevState, "ans": result['messages'][3]['content']['total'] }));
     };
   return (
     <button onClick={handleClick}>{title}</button>

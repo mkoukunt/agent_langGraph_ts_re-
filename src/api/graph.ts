@@ -29,11 +29,12 @@ const findApiNode = async (state) => {
 };
 
 const findDataNode = async (state) => {  
+  
    let data;
    data  = await fetchData(state['messages'][2]['content'].split(" ")[1]);
-  
+  console.log("DATA ============",data)
   return { 
-    messages: [{ role: "findApi", content: data }] 
+    messages: [{ role: "findData", content: data }] 
   };
 };
 
