@@ -14,7 +14,12 @@ export const findApi = async (qn:string): Promise<string> => {
 
 export const fetchData = async (path:string): Promise<string> => {
   
-  const { data } = await nsApiClient.get<string>('/fetchData'+path); 
+  const { data } = await nsApiClient.get<string>('/fetchData'+path,{
+  headers: {
+    'Authorization': 'Bearer afe7898123842cd69e2577817eb78e44'
+    
+  }
+}); 
   console.log(data)
   return {data}.data; // Adjust based on your API response structure
 };
