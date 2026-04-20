@@ -1,4 +1,4 @@
-import { StateGraph, START, END } from "@langchain/langgraph";
+import { StateGraph, START, END, interrupt } from "@langchain/langgraph/web";
 import { fetchData, findApi, getreasoning } from "./apiSvc";
 // 1. Define the Graph State
 // This represents the "memory" that flows between nodes.
@@ -12,6 +12,7 @@ const graphState = {
 // 2. Define a Node
 // A node is just a function that takes the current state and returns an update.
 const reasoningNode = async (state) => {  
+  interrupt({}); // This will stop the graph execution until we call resume() from the UI.
    let data;
    data  = await getreasoning(state['messages'][0]['content']);  
    data=data.slice(3);
@@ -31,8 +32,9 @@ const findApiNode = async (state) => {
 const findDataNode = async (state) => {  
   
    let data;
-   data  = await fetchData(state['messages'][2]['content'].split(" ")[1]);
-  console.log("DATA ============",data)
+   console.log("DATA ============",state)
+   data  = await fetchData(state['messages'][2]['content'].split(" ")[1],state['messages'][0]['apiHost'], state['messages'][0]['accessToken']);
+  
   return { 
     messages: [{ role: "findData", content: data }] 
   };

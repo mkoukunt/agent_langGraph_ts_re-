@@ -12,12 +12,11 @@ export const findApi = async (qn:string): Promise<string> => {
   return {data}.data; // Adjust based on your API response structure
 };
 
-export const fetchData = async (path:string): Promise<string> => {
-  console.log("PATH====",path);
-  const token = 'cd4ab54e43f1482ded59f47d07246ba7';
-  const { data } = await nsApiClient.get<string>('/fetchData'+path,{
+export const fetchData = async (path:string, apiHost:string, accessToken:string): Promise<string> => {
+
+  const { data } = await nsApiClient.get<string>((apiHost?apiHost:'/fetchData')+path,{
   headers: {
-    'Authorization': `Bearer ${token}`    
+    'Authorization': `Bearer ${accessToken}`    
   }
 }); 
   console.log(data)
