@@ -1,13 +1,5 @@
-import { getreasoning } from "../api/apiSvc";
+import { agentApi } from "../api/apiSvc";
 import type { AgentStore } from "../store";
-import { helloWorldGraph } from "../api/graph";
-
-const graphState = {
-  messages: {
-    value: (x, y) => x.concat(y),
-    default: () => [],
-  },
-};
 
 export function NSbutton({
   title,
@@ -23,16 +15,13 @@ export function NSbutton({
     console.log("API Host:", st.apiHost);
     console.log("Access Token:", st.accessToken);
     console.log("Question:", st.qn);
-    const result = await helloWorldGraph.invoke({
-      messages: [{ role: "user", content: st.qn, apiHost:st.apiHost, accessToken: st.accessToken }],
-    });
-    console.log("\n=====START======");
-    console.log("Graph result: ", result);
-    console.log("\n=====END======");
-    console.log(result["messages"][3]["content"]);
+
+    let {data}=await agentApi({qn: st.qn,apiHost: st.apiHost, accessToken: st.accessToken}); // Replace with actual API call when ready
+
+
     setState((prevState) => ({
       ...prevState,
-      ans: JSON.stringify(result["messages"][3]["content"]),
+      ans: JSON.stringify({data}), // Replace with actual API response when ready,
     }));
   };
   return (
