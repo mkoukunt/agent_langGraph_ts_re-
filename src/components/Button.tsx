@@ -11,17 +11,15 @@ export function NSbutton({
   setState: React.Dispatch<React.SetStateAction<AgentStore>>;
 }) {
   const handleClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log("React button clicked");
-    console.log("API Host:", st.apiHost);
-    console.log("Access Token:", st.accessToken);
+
     console.log("Question:", st.qn);
 
-    let {data}=await agentApi({qn: st.qn,apiHost: st.apiHost, accessToken: st.accessToken}); // Replace with actual API call when ready
+    let data=await agentApi({qn: st.qn,apiHost: st.apiHost, accessToken: st.accessToken}); // Replace with actual API call when ready
 
-
+console.log("API Response:", data);
     setState((prevState) => ({
       ...prevState,
-      ans: JSON.stringify({data}), // Replace with actual API response when ready,
+      ans: JSON.stringify(data), // Replace with actual API response when ready,
     }));
   };
   return (
