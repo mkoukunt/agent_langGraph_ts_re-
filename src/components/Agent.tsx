@@ -13,7 +13,7 @@ import type { AgentStore } from "../store";
       <NSInput  label="Api Host" inputName="apiHost" st={state} setState={setState} placeholder="enter Api Host"/>  
       <NSInput  label="Access Token" inputName="accessToken" st={state} setState={setState} placeholder="enter Access Token"/>  
       <NSInput  label="Question" inputName="qn" st={state} setState={setState} placeholder="enter Question"/>      
-      <NSbutton   title='Generate' st={state} setState={setState} />
+      <NSbutton   title='Generate' st={state} setState={setState} />     
       <NSPara st={state} setState={setState}/>
     </div>
     
