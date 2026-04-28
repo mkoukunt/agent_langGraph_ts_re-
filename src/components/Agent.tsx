@@ -6,6 +6,7 @@ import { NSTextArea } from "./TextArea";
 import { NSPara } from "./Para";
 import { NSInput } from "./Input";
 import type { AgentStore } from "../store";
+import { NSTable } from "./NsTable";
  export function Agent({  title: string }) {
   const [state, setState] = React.useState<AgentStore>({  apiHost: '', accessToken: '' , qn: '', ans: ''});
   return (
@@ -13,8 +14,9 @@ import type { AgentStore } from "../store";
       <NSInput  label="Api Host" inputName="apiHost" st={state} setState={setState} placeholder="enter Api Host"/>  
       <NSInput  label="Access Token" inputName="accessToken" st={state} setState={setState} placeholder="enter Access Token"/>  
       <NSInput  label="Question" inputName="qn" st={state} setState={setState} placeholder="enter Question"/>      
-      <NSbutton   title='Generate' st={state} setState={setState} />     
-      <NSPara st={state} setState={setState}/>
+      <NSbutton   title='Validate' st={state} setState={setState} />   
+      <NSTable st={state} setState={setState}/>  
+      
     </div>
     
   );
