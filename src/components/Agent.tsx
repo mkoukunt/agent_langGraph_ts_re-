@@ -13,7 +13,7 @@ import { NSTable } from "./NsTable";
     <div className="container"> 
       <NSInput  label="Api Host" inputName="apiHost" st={state} setState={setState} placeholder="enter Api Host"/>  
       <NSInput  label="Access Token" inputName="accessToken" st={state} setState={setState} placeholder="enter Access Token"/>  
-      <NSInput  label="Question" inputName="qn" st={state} setState={setState} placeholder="enter Question"/>      
+      <NSInput  label="Instruction" inputName="qn" st={state} setState={setState} placeholder="enter Question"/>      
       <NSbutton   title='Validate' st={state} setState={setState} />   
       <NSTable st={state} setState={setState}/>  
       
