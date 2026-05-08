@@ -47,9 +47,10 @@ export function NSbutton({
     // }
   };
   return (
-    <div className="item">
- 
+   
+     <div  className="i-item-2">
       <button type="button" className="btn btn-secondary" onClick={handleClick}>{title}</button>
-    </div>
+      </div>
+    
   );
 }

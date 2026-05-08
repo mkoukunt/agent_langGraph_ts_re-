@@ -2,10 +2,22 @@ body {
   min-height: 100dvh;
   margin: 0;
 }
+
+ul {
+  list-style-type: none;
+  padding: 0; /* Optional: Removes default indentation */
+  margin: 0;  /* Optional: Removes default margin */
+}
+
+ul li:hover {
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
 .container{
   max-width: 900px;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
   border-color:  red;
   gap:1em;
   margin: 10px auto;
@@ -13,7 +25,15 @@ body {
 }
 
 .item{
+  grid-row:2/3;
   font-size: 20ox;
+}
+
+.item-nav{
+  grid-row:1/2;
+  grid-column:1/2;
+  font-size: 20ox;
+  border-right: 1px solid black;
 }
 
 .item:nth-of-type(5){ 
@@ -22,4 +42,24 @@ body {
   overflow-y: auto;  
   border: 1px solid black;
   padding: 10px;
+}
+
+.i-container{ 
+  display: grid;
+  grid-template-columns: 0.5fr 3fr 1.5fr;
+  grid-template-rows: 1fr;
+  border-color:  red;
+  gap:1em;
+  margin: 10px auto;
+  align-items: center;
+}
+
+.i-item-1{
+  font-size: 20ox;
+  grid-column:2/3
+}
+
+.i-item2{
+  font-size: 20ox;
+  grid-column:3/4
 }

@@ -8,18 +8,34 @@ import { NSInput } from "./Input";
 import type { AgentStore } from "../store";
 import { NSTable } from "./NsTable";
 import { NsSummary } from "./NsSummary";
- export function Agent({  title: string }) {
-  const [state, setState] = React.useState<AgentStore>({  apiHost: '', accessToken: '' , qn: '', ans: ''});
+import { NsNavigation } from "./NsNavigation";
+export function Agent({ title: string }) {
+  const [state, setState] = React.useState<AgentStore>({
+    apiHost: "",
+    accessToken: "",
+    qn: "",
+    ans: "",
+  });
   return (
-    <div className="container"> 
-      <NSInput  label="Api Host" inputName="apiHost" st={state} setState={setState} placeholder="enter Api Host"/>  
-      <NSInput  label="Access Token" inputName="accessToken" st={state} setState={setState} placeholder="enter Access Token"/>  
-      <NSInput  label="Instruction" inputName="qn" st={state} setState={setState} placeholder="enter Question"/>      
-      <NSbutton   title='Validate' st={state} setState={setState} />
-      <NsSummary   st={state} setState={setState} />  
-      <NSTable st={state} setState={setState}/>  
-      
-    </div>
-    
+    <div className="container">
+       
+      {/*<NSInput  label="Api Host" inputName="apiHost" st={state} setState={setState} placeholder="enter Api Host"/>  
+      <NSInput  label="Access Token" inputName="accessToken" st={state} setState={setState} placeholder="enter Access Token"/>  */}
+      <div className="item">
+        <div className="i-container">
+          <NsNavigation   st={state} setState={setState} />           
+            <NSInput              
+              inputName="qn"
+              st={state}
+              setState={setState}
+              placeholder="enter instruction"
+            />
+            <NSbutton title="Validate" st={state} setState={setState} />
+          </div>
+          {/*<NsSummary   st={state} setState={setState} />  
+      <NSTable st={state} setState={setState}/>  */}
+        </div>
+      </div>
+   
   );
 }

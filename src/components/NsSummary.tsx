@@ -7,10 +7,12 @@ export function NsSummary({
   st: AgentStore;
   setState: React.Dispatch<React.SetStateAction<AgentStore>>;
 }) {
-  let a=JSON.parse(st.ans);
-  return (
+  let mac="";
+  mac=st.ans ?JSON.parse(st.ans).mac:"";
+  return ( 
     <div className="item">
-      {a.mac}
+      <span>{mac}</span>
+      <span>{mac}</span>
     </div>
   );
 }
