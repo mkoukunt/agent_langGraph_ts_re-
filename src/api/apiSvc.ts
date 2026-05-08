@@ -1,9 +1,10 @@
 import { apiClient } from './apiClient';
 
 export const agentApi = async (b: { qn: string, apiHost: string, accessToken: string,tId:string }): Promise<string> => {  
-  const data  = await fetch('/agent', {method:'POST',headers: { 'Content-Type': 'application/json' },body:JSON.stringify(b)}); // Adjust the endpoint as needed  
-  console.log("__________", data)
-  return data.json(); // Adjust based on your API response structure
+  let data:any  = await fetch('/agent', {method:'POST',headers: { 'Content-Type': 'application/json' },body:JSON.stringify(b)}); // Adjust the endpoint as needed  
+  data=data.json()
+  console.log("========", data)
+  return data; // Adjust based on your API response structure
 };
 
 

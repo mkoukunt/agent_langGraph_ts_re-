@@ -28,7 +28,7 @@ export function NSbutton({
     // let res="";
     // for (let word of words) {
     //  res =res+" "+word;
-    console.log("+++++++", data);
+   console.log("+++++++", JSON.stringify(data));
     if (data.interrupted) {
       console.log(data.id);
       data = await agentResume({

@@ -2,5 +2,10 @@ export interface AgentStore {
     apiHost: string;
     accessToken: string
     qn: string,
-    ans?:[] 
+    ans:{
+    mac: string;
+    brand: string;
+    model: string;
+    results: any[];
+  }
 }
