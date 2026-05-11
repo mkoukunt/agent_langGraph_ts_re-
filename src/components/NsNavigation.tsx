@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { AgentStore } from "../store";
 
 export function NsNavigation({
@@ -11,11 +12,11 @@ export function NsNavigation({
   mac = st.ans ? JSON.parse(st.ans).mac : "";
   return (
     <div className="item-nav">
-      <ul>
-        <li>nav1</li>
-        <li>nav2</li>
-        <li>nav3</li>
-      </ul>
+      <nav>
+              <Link to="/">Home</Link> {" "}
+              <Link to="/searchAI">Reports</Link> {" "}
+              <Link to="/contact">Contact</Link>
+            </nav>
     </div>
   );
 }

@@ -7,5 +7,11 @@ export interface AgentStore {
     brand: string;
     model: string;
     results: any[];
-  }
+  },
+  search:[ {
+    mac: string;
+    brand: string;
+    model: string;
+    results: any[];
+  }]
 }
