@@ -15,8 +15,8 @@ export const agentResume = async (b: {tId:string, apiHost: string, accessToken: 
 };
 
 
-export const fetchApi = async (b: { qn: string, apiHost: string}): Promise<string> => {  
-  let data:any  = await fetch('/agent/fetch?qn='+b.qn, {method:'GET',headers: { 'Content-Type': 'application/json' }}); // Adjust the endpoint as needed  
+export const fetchApi = async (b: { qn: string, tId: string}): Promise<string> => {  
+  let data:any  = await fetch('/agent/fetch', {method:'POSt',headers: { 'Content-Type': 'application/json' },body:JSON.stringify(b)}); // Adjust the endpoint as needed  
   data=data.json()
   console.log("========", data)
   return data; // Adjust based on your API response structure

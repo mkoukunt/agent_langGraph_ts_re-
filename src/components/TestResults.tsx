@@ -6,6 +6,7 @@ import { NSInput } from "./Input";
 import { fetchApi } from "../api/apiSvc";
 import { NSSearchTable } from "./NsSearchTable";
 import { NsNavigation } from "./NsNavigation";
+import { NSDetailTable } from "./NsDetailTable";
 
 export function TestResults() {
 
@@ -25,10 +26,10 @@ export function TestResults() {
 
     let data: any = await fetchApi({
       qn: state.qn,
-      apiHost: state.apiHost,
+     tId: crypto.randomUUID(),
     }); // Replace with actual API call when ready
 
-  //  /console.log("+++++++", JSON.stringify(data));
+  console.log("+++++++", JSON.stringify(data));
    
 
     setState((prevState) => ({
@@ -55,6 +56,7 @@ export function TestResults() {
         />
         <NSbutton title="Fetch" st={state} setState={setState} handleClick={handleClick}/>
         <NSSearchTable st={state} setState={setState} />
+     
       </div>
     </div>
     </div>

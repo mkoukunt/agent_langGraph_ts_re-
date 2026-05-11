@@ -17,7 +17,7 @@ ul li:hover {
   max-width: 900px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 50px 1fr auto;
   border-color:  red;
   gap:1em;
   margin: 10px auto;
@@ -32,6 +32,15 @@ ul li:hover {
 .item-ai-srch-tbl{
   grid-row:3/4;
   grid-column: 2/3;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.item-ai-dtl-tbl{
+  grid-row:3/4;
+  grid-column: 3/4;
+  max-height: 400px;
+  overflow: auto;
 }
 
 .item-nav{
